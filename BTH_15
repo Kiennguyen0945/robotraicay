@@ -1,0 +1,42 @@
+using System;
+class TongDaySoxchia2
+{
+    static void Main()
+    {
+        Console.Write("Nhap gia tri x: ");
+        double x = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Nhap so phan tu: ");
+        double phantu = Convert.ToDouble(Console.ReadLine());
+        double sogiaithua = 1;
+        double sumhang = 0;
+        double somu = 0;
+        for (int i = 1; i <= phantu; i++)
+        {
+            double giaithua = 1;
+            for (int j = 1; j <= sogiaithua; j++)
+            {
+                giaithua *= j;
+            }
+            for (; somu < sogiaithua;)
+            {
+                somu+= 2;
+            }
+            if (i == 1 && somu == 2)
+                somu -= 2;
+            double xpow = (double)Math.Pow(x, somu);
+            if (i % 2 != 0)
+            {
+            sumhang += xpow / giaithua;
+            }
+            else
+            {
+            sumhang -= xpow / giaithua;
+            }
+            if (i == 1)
+            sogiaithua += 1;
+            else
+            sogiaithua += 2;    
+        }
+        Console.WriteLine($"Tong = {sumhang}");
+    }
+}
